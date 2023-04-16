@@ -1,0 +1,7 @@
+{
+    "host": "localhost",
+    "database": "gymapp",
+    "user": "root",
+    "password": "root",
+    "dialect":"mysql"
+}
