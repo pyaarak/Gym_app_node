@@ -18,4 +18,4 @@ Fulldetails.workouts.belongsTo(Fulldetails.Users, {foreignKey: "User_id",foreign
 
 module.exports=Fulldetails
 
-// db.sync()
+db.sync()
