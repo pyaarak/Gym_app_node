@@ -22,6 +22,6 @@ Router.put("/workouts/:id",[ValidateToken,WorkoutsUpdate])
 Router.get('/EnquiryDetails',[ValidateToken,EnquiryDetails])
 Router.post('/EnquiryDetails',[ValidateToken,CreateEnquiry])
 Router.delete('/EnquiryDetails/:id',[ValidateToken,DeleteEnquiry])
-Router.get("/admincreate",[CreateAdmin])
+Router.post("/admincreate",[CreateAdmin])
 
 module.exports = Router;
