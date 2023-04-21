@@ -11,14 +11,14 @@ const { ReasonPhrases, StatusCodes, getReasonPhrase, getStatusCode } = require('
 require('dotenv').config();
 
 const s3 = new AWS.S3({
-    accessKeyId: "AKIAZ5AGXBLDRO7GME5N",
-    secretAccessKey: "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"
+    accessKeyId: "AKIAQ4A5WZDG3CRE3ZSU",
+    secretAccessKey: "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"
 });
 
 const uploadFile = async (fileName) => {
        let dataLocation=""
        const params = {
-           Bucket: 'samplekae', // pass your bucket name
+           Bucket: 'fikadocs', // pass your bucket name
            Key: fileName.name, // file will be saved as testBucket/contacts.csv
            Body: fileName.data,
            ACL: "public-read"
