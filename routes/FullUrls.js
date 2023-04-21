@@ -3,7 +3,7 @@ const express = require('express')
 Router.use(express.json())
 const { LoginUsingJwt } = require('../Controllers/Auth');
 const {ValidateToken} = require('../Controllers/AuthValidation');
-const { CreateUser, UserDetails, UpdateUserDetails, UniqUserDetails, TrainerDetails, CreateWorkouts, CreateReport, CreateAttendance, ReportRemainders, AttendanceRemainders, UniqWorkoutDetails, WorkoutsUpdate, EnquiryDetails, CreateEnquiry, DeleteEnquiry } = require('../Controllers/UserDetails');
+const { CreateUser, UserDetails, UpdateUserDetails, UniqUserDetails, TrainerDetails, CreateWorkouts, CreateReport, CreateAttendance, ReportRemainders, AttendanceRemainders, UniqWorkoutDetails, WorkoutsUpdate, EnquiryDetails, CreateEnquiry, DeleteEnquiry, CreateAdmin } = require('../Controllers/UserDetails');
 
 
 Router.post('/logindetails/login', LoginUsingJwt)
@@ -22,6 +22,6 @@ Router.put("/workouts/:id",[ValidateToken,WorkoutsUpdate])
 Router.get('/EnquiryDetails',[ValidateToken,EnquiryDetails])
 Router.post('/EnquiryDetails',[ValidateToken,CreateEnquiry])
 Router.delete('/EnquiryDetails/:id',[ValidateToken,DeleteEnquiry])
-// Router.get("/Report",[ValidateToken,Repo])
+Router.get("/admincreate",[CreateAdmin])
 
 module.exports = Router;

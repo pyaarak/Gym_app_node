@@ -36,6 +36,14 @@ const uploadFile = async (fileName) => {
 };
 
 module.exports={
+    CreateAdmin:(req,res)=>{
+        req.body.password = Crypto.createHash('sha256').update(req.body.password).digest('base64')
+        LoginDetails.create(req.body).then((response)=>{
+            res.send(Response(ReasonPhrases.OK, req.token, StatusCodes.OK, "Success", response.dataValues, 1, getReasonPhrase(StatusCodes.OK)))
+        }).catch((error) => {
+            res.send(Response(ReasonPhrases.INTERNAL_SERVER_ERROR, req.token, StatusCodes.INTERNAL_SERVER_ERROR, error.message, null, 1, null))
+        }) 
+    },
     CreateEnquiry:(req,res)=>{
         Enquiry.create(req.body).then((response) => {
             res.send(Response(ReasonPhrases.OK, req.token, StatusCodes.OK, "Success", response.dataValues, 1, getReasonPhrase(StatusCodes.OK)))
